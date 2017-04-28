@@ -13,6 +13,7 @@
       {{ msg }}
       <form method="POST" action="{% url 'user:signForm' %}" class="register-form"> {% csrf_token %}
         <input type="text" name="user_id" placeholder="email address"/>
+          <input type="text" name="nickname" maxlength="10" placeholder="nickname"/>
         <input type="password" name="user_pw" placeholder="password"/>
         <input type="password" name="user_pwConfirm" placeholder="password confirm"/>
         <button>create</button>a
