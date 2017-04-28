@@ -12,5 +12,6 @@ class Recipe(models.Model):
 	tags = models.ManyToManyField(Tag)
 
 class MyUser(AbstractUser):
-    recipe = models.ManyToManyField(Recipe)
+	nickname = models.CharField(max_length=10)
+	recipe = models.ManyToManyField(Recipe)
 
