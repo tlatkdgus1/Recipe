@@ -3,11 +3,542 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Recipe Project</title>
-      <link rel="stylesheet" href="{% static  "css/style.css"%}">
+  <title>Inbox (work in progress)</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+      <link rel="stylesheet" href="{% static  "css/index.css"%}">
+
+
 </head>
 
 <body>
-{{ user.username }}
+  <div class="menu-wrapper">
+  <div class="left-container">
+    <a href="#" class="back"><i class="fa fa-arrow-left"></i></a>
+    <label class="menu-toggle-icon">
+      <input type="checkbox">
+      <span href="#" class="icon-bar"></span>
+      <span href="#" class="icon-bar"></span>
+      <span href="#" class="icon-bar"></span>
+      </input>
+    </label>
+    <a class="logo" href="#"><span>Inbox</span></a>
+  </div>
+  <div class="right-container">
+    <nav class="menus">
+      <ul>
+        <li><a href="#"><i class="fa fa-comment"></i></a></li>
+        <li><a href="#"><i class="fa fa-th"></i></a></li>
+        <li><a href="#"><i class="fa fa-bell"></i></a></li>
+        <li>
+          <a class="link-image" href="#">
+            <img src="https://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/oK6DEDS7grM/w56-h56/photo.jpg" /></a>
+          <div class="dropdown">
+            <div class="dropdown-item default">
+              <img src="http://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/BWJYqc4xTsU/s96-c/photo.jpg" alt="" />
+              <div class="profile-content">
+                  <div><b>{{ user.nickname }}</b></div>
+                  <div>{{ user.username }}</div>
+                  <div><a href="#">Account</a> - <a href="#">Privacy</a></div>
+                  <div><a href="#" class="click">View Profile</a></div>
+              </div>
+            </div>
+            <div class="dropdown-item">
+              <a class="profile-item" href="">
+                  <img src="https://lh3.googleusercontent.com/-gR6Xo5_uP8s/AAAAAAAAAAI/AAAAAAAAAAA/5CTZklN08qY/s48-c/photo.jpg" />
+                  <div class="profile-content">
+                    <div>Sathish Kumar Thangaraj</div>
+                    <div class="email">Sathishlxg@gmail.com (default)</div>
+                  </div>
+              </a>
+            </div>
+            <div class="dropdown-item">
+              <a class="profile-item" href="">
+                  <img src="https://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/oK6DEDS7grM/w56-h56/photo.jpg" />
+                  <div class="profile-content">
+                  <div class="default-name">Sathish Kumar</div>
+                  <div class="email">Sathislxg@gmail.com</div>
+              </div>
+              </a>
+            </div>
+            <div class="dropdown-item">
+              <a class="default-btn pull-left" href="#">Add account</a>
+              <a class="default-btn pull-right" href="#">Sign out</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="center-container">
+    <div class="search-wrapper">
+      <div class="search-box">
+      <input type="text" placeholder="Search" spellcheck="false"></input>
+    </div>
+    <div class="chk-pin">
+      <label>
+        <input type="checkbox" /><span></span></label>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="body-wrapper">
+  <articel class="search-result search-hide"></articel>
+  <nav class="sidebar hide">
+    <ul>
+      <li><a href="#" class="inbox"><i class="fa fa-thumb-tack fa-lg color-blue"></i><span>Inbox</span></a></li>
+      <li><a href="#"><i class="fa fa-send-o fa-lg color-cyan"></i><span>Sent</span></a></li>
+      <li><a href="#" class="snooz"><i class="fa fa-clock-o fa-lg color-amber"></i><span>Snoozed</span></a></li>
+      <li><a href="#" class="done"><i class="fa fa-check fa-lg color-green"></i><span>Done</span></a></li>
+      <li><a href="#"><i class="fa fa-trash fa-lg"></i><span>Trash</span></a></li>
+      <li>
+        <input type="checkbox" id="drop-menu">
+        <label for="drop-menu" class="sub-menu"><i class="fa fa-cog fa-lg"></i><span>Settings</span></label>
+        <ul>
+          <li><a href="#" class="reminder"><i class="fa fa-hand-o-up fa-lg"></i><span>Reminders</span></a></li>
+          <li><a href="#" class="spam"><i class="fa fa-warning fa-lg color-red"></i><span>Spam</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <article>
+    <div class="floating-btn">
+      <div class="btn-wrapper">
+        <button class="action-btn"></button>
+        <span class="action-popover">Compose</span>
+      </div>
+      <ul class="floating-menus">
+        <li>
+          <button><img src="https://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/oK6DEDS7grM/w56-h56/photo.jpg" /><span class="action-popover">Sathish Kumar</span></button>
+        </li>
+        <li>
+          <button><img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_a_56.png" /><span class="action-popover">Max</span></button>
+        </li>
+        <li>
+          <button><img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_k_56.png" /><span class="action-popover">India</span></button>
+        </li>
+        <li>
+          <button><img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_s_56.png" /><span class="action-popover">Dexter</span></button>
+        </li>
+        <li>
+          <button class="invite-action"><img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/ic_invite_wht_24dp_r1.png" /><span class="action-popover">Inite to Inbox</span></button>
+        </li>
+      </ul>
+    </div>
+  </article>
+  <section>
+    <article class="wrapper">
+      <div class="header">
+        <div class="time">Today</div>
+        <div class="action">
+          <button><i class="fa fa-check fa-lg"></i></button>
+        </div>
+      </div>
+      <div class="mail-wrapper" style="display:none">
+        <div class="mail-top shadow">
+          <div class="mail-subject">FW:Jobs to Apply for</div>
+          <div class="mail-action"></div>
+        </div>
+        <div class="mail-body ">
+          <div class="image">
+            <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_k_56.png" />
+          </div>
+          <div class="someClass">
+            <div class="sender">
+              <sapn>Kennedy</sapn>
+              <span> to me </span>
+            </div>
+            <div class="message">
+              The only thing I can think to do is trigger an event when the window resizes and dynamically set a new fixed width on text-div, but this just feels inelegant, especially considering padding and other neighboring artifacts I'd have to subtract out to get
+              a proper width.
+            </div>
+          </div>
+        </div>
+        <div class="mail-footer shadow">
+          <div class="image">
+            <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_s_56.png" />
+          </div>
+          <div class="replybox">
+            <div class="draft"><span>Draft </span><span>to, Kennedy <i class="fa fa-angle-down"></i></span></div>
+            <textarea></textarea>
+            <div class="left">
+              <a href="#" class="send-btn">SEND</a>
+              <a href="#"><i class="fa fa-paperclip"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-wrapper">
+        <div class="image">
+          <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_k_56.png" />
+        </div>
+        <div class="name"><span>Kennedy</span></div>
+        <div class="subject">
+          <div class="actions">
+            <a href="#" class="pinned-msg"><i class="fa fa-thumb-tack"></i></a>
+            <ul>
+              <li><a href="#"><i class="fa fa-thumb-tack"></i></a></li>
+              <li><a href="#"><i class="fa fa-clock-o"></i></a></li>
+              <li><a href="#"><i class="fa fa-check"></i></a></li>
+              <li><a href="#"><i class="fa fa-ellipsis-v"></i></a></li>
+            </ul>
+          </div>
+          <div class="content">
+            <span class="fs">FW: Jobs to Apply for</span><span> - </span><span class="sn">Here are some of the jobs that you can apply for</span>
+          </div>
+        </div>
+      </div>
+      <div class="mail-wrapper" style="display:none">
+        <div class="mail-top shadow">
+          <div class="mail-subject">FW:Jobs to Apply for</div>
+          <div class="mail-action"></div>
+        </div>
+        <div class="mail-body ">
+          <div class="image">
+            <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_k_56.png" />
+          </div>
+          <div class="someClass">
+            <div class="sender">
+              <sapn>Kennedy</sapn>
+              <span> to me </span>
+            </div>
+            <div class="message">
+              The only thing I can think to do is trigger an event when the window resizes and dynamically set a new fixed width on text-div, but this just feels inelegant, especially considering padding and other neighboring artifacts I'd have to subtract out to get
+              a proper width.
+            </div>
+          </div>
+        </div>
+        <div class="mail-footer shadow">
+          <div class="image">
+            <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_s_56.png" />
+          </div>
+          <div class="replybox">
+            <div class="draft"><span>Draft </span><span>to, Kennedy <i class="fa fa-angle-down"></i></span></div>
+            <textarea></textarea>
+            <div class="left">
+              <a href="#" class="send-btn">SEND</a>
+              <a href="#"><i class="fa fa-paperclip"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-wrapper">
+        <div class="image">
+          <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_m_56.png" />
+        </div>
+        <div class="name"><span>Maximus</span></div>
+        <div class="subject">
+          <div class="actions">
+            <a href="#" class="pinned-msg"><i class="fa fa-thumb-tack"></i></a>
+            <ul>
+              <li><a href="#"><i class="fa fa-thumb-tack"></i></a></li>
+              <li><a href="#"><i class="fa fa-clock-o"></i></a></li>
+              <li><a href="#"><i class="fa fa-check"></i></a></li>
+              <li><a href="#"><i class="fa fa-ellipsis-v"></i></a></li>
+            </ul>
+          </div>
+          <div class="content">
+            <span class="fs">Buffalo boy</span><span> - </span><span class="sn">Once in your life time you will truly come across someone</span>
+          </div>
+        </div>
+      </div>
+      <div class="mail-wrapper" style="display:none">
+        <div class="mail-top shadow">
+          <div class="mail-subject">FW:Jobs to Apply for</div>
+          <div class="mail-action"></div>
+        </div>
+        <div class="mail-body ">
+          <div class="image">
+            <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_k_56.png" />
+          </div>
+          <div class="someClass">
+            <div class="sender">
+              <sapn>Kennedy</sapn>
+              <span> to me </span>
+            </div>
+            <div class="message">
+              The only thing I can think to do is trigger an event when the window resizes and dynamically set a new fixed width on text-div, but this just feels inelegant, especially considering padding and other neighboring artifacts I'd have to subtract out to get
+              a proper width.
+            </div>
+          </div>
+        </div>
+        <div class="mail-footer shadow">
+          <div class="image">
+            <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_s_56.png" />
+          </div>
+          <div class="replybox">
+            <div class="draft"><span>Draft </span><span>to, Kennedy <i class="fa fa-angle-down"></i></span></div>
+            <textarea></textarea>
+            <div class="left">
+              <a href="#" class="send-btn">SEND</a>
+              <a href="#"><i class="fa fa-paperclip"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-wrapper">
+        <div class="image">
+          <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_a_56.png" />
+        </div>
+        <div class="name"><span>Alex</span></div>
+        <div class="subject">
+          <div class="actions">
+            <a href="#" class="pinned-msg"><i class="fa fa-thumb-tack"></i></a>
+            <ul>
+              <li><a href="#"><i class="fa fa-thumb-tack"></i></a></li>
+              <li><a href="#"><i class="fa fa-clock-o"></i></a></li>
+              <li><a href="#"><i class="fa fa-check"></i></a></li>
+              <li><a href="#"><i class="fa fa-ellipsis-v"></i></a></li>
+            </ul>
+          </div>
+          <div class="content">
+            <span class="fs">Alex: Only 7 days left</span><span> - </span><span class="sn">Attention: Your subscription ends soon</span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="wrapper">
+      <div class="header">
+        <div class="time">This month</div>
+        <div class="action">
+          <button><i class="fa fa-check fa-lg"></i></button>
+        </div>
+      </div>
+      <div class="mail-wrapper" style="display:none">
+        <div class="mail-top shadow">
+          <div class="mail-subject">FW:Jobs to Apply for</div>
+          <div class="mail-action"></div>
+        </div>
+        <div class="mail-body ">
+          <div class="image">
+            <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_k_56.png" />
+          </div>
+          <div class="someClass">
+            <div class="sender">
+              <sapn>Kennedy</sapn>
+              <span> to me </span>
+            </div>
+            <div class="message">
+              The only thing I can think to do is trigger an event when the window resizes and dynamically set a new fixed width on text-div, but this just feels inelegant, especially considering padding and other neighboring artifacts I'd have to subtract out to get
+              a proper width.
+            </div>
+          </div>
+        </div>
+        <div class="mail-footer shadow">
+          <div class="image">
+            <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_s_56.png" />
+          </div>
+          <div class="replybox">
+            <div class="draft"><span>Draft </span><span>to, Kennedy <i class="fa fa-angle-down"></i></span></div>
+            <textarea></textarea>
+            <div class="left">
+              <a href="#" class="send-btn">SEND</a>
+              <a href="#"><i class="fa fa-paperclip"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-wrapper">
+        <div class="image">
+          <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_k_56.png" />
+        </div>
+        <div class="name"><span>Kennedy</span></div>
+        <div class="subject">
+          <div class="actions">
+            <a href="#" class="pinned-msg"><i class="fa fa-thumb-tack"></i></a>
+            <ul>
+              <li><a href="#"><i class="fa fa-thumb-tack"></i></a></li>
+              <li><a href="#"><i class="fa fa-clock-o"></i></a></li>
+              <li><a href="#"><i class="fa fa-check"></i></a></li>
+              <li><a href="#"><i class="fa fa-ellipsis-v"></i></a></li>
+            </ul>
+          </div>
+          <div class="content">
+            <span class="fs">FW: Jobs to Apply for</span><span> - </span><span class="sn">Here are some of the jobs that you can apply for</span>
+          </div>
+        </div>
+      </div>
+      <div class="mail-wrapper" style="display:none">
+        <div class="mail-top shadow">
+          <div class="mail-subject">FW:Jobs to Apply for</div>
+          <div class="mail-action"></div>
+        </div>
+        <div class="mail-body ">
+          <div class="image">
+            <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_k_56.png" />
+          </div>
+          <div class="someClass">
+            <div class="sender">
+              <sapn>Kennedy</sapn>
+              <span> to me </span>
+            </div>
+            <div class="message">
+              The only thing I can think to do is trigger an event when the window resizes and dynamically set a new fixed width on text-div, but this just feels inelegant, especially considering padding and other neighboring artifacts I'd have to subtract out to get
+              a proper width.
+            </div>
+          </div>
+        </div>
+        <div class="mail-footer shadow">
+          <div class="image">
+            <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_s_56.png" />
+          </div>
+          <div class="replybox">
+            <div class="draft"><span>Draft </span><span>to, Kennedy <i class="fa fa-angle-down"></i></span></div>
+            <textarea></textarea>
+            <div class="left">
+              <a href="#" class="send-btn">SEND</a>
+              <a href="#"><i class="fa fa-paperclip"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-wrapper">
+        <div class="image">
+          <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_m_56.png" />
+        </div>
+        <div class="name"><span>Maximus</span></div>
+        <div class="subject">
+          <div class="actions">
+            <a href="#" class="pinned-msg"><i class="fa fa-thumb-tack"></i></a>
+            <ul>
+              <li><a href="#"><i class="fa fa-thumb-tack"></i></a></li>
+              <li><a href="#"><i class="fa fa-clock-o"></i></a></li>
+              <li><a href="#"><i class="fa fa-check"></i></a></li>
+              <li><a href="#"><i class="fa fa-ellipsis-v"></i></a></li>
+            </ul>
+          </div>
+          <div class="content">
+            <span class="fs">Buffalo boy</span><span> - </span><span class="sn">Once in your life time you will truly come across someone</span>
+          </div>
+        </div>
+      </div>
+      <div class="mail-wrapper" style="display:none">
+        <div class="mail-top shadow">
+          <div class="mail-subject">FW:Jobs to Apply for</div>
+          <div class="mail-action"></div>
+        </div>
+        <div class="mail-body ">
+          <div class="image">
+            <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_k_56.png" />
+          </div>
+          <div class="someClass">
+            <div class="sender">
+              <sapn>Kennedy</sapn>
+              <span> to me </span>
+            </div>
+            <div class="message">
+              The only thing I can think to do is trigger an event when the window resizes and dynamically set a new fixed width on text-div, but this just feels inelegant, especially considering padding and other neighboring artifacts I'd have to subtract out to get
+              a proper width.
+            </div>
+          </div>
+        </div>
+        <div class="mail-footer shadow">
+          <div class="image">
+            <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_s_56.png" />
+          </div>
+          <div class="replybox">
+            <div class="draft"><span>Draft </span><span>to, Kennedy <i class="fa fa-angle-down"></i></span></div>
+            <textarea></textarea>
+            <div class="left">
+              <a href="#" class="send-btn">SEND</a>
+              <a href="#"><i class="fa fa-paperclip"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-wrapper">
+        <div class="image">
+          <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_a_56.png" />
+        </div>
+        <div class="name"><span>Alex</span></div>
+        <div class="subject">
+          <div class="actions">
+            <a href="#" class="pinned-msg"><i class="fa fa-thumb-tack"></i></a>
+            <ul>
+              <li><a href="#"><i class="fa fa-thumb-tack"></i></a></li>
+              <li><a href="#"><i class="fa fa-clock-o"></i></a></li>
+              <li><a href="#"><i class="fa fa-check"></i></a></li>
+              <li><a href="#"><i class="fa fa-ellipsis-v"></i></a></li>
+            </ul>
+          </div>
+          <div class="content">
+            <span class="fs">Alex: Only 7 days left</span><span> - </span><span class="sn">Attention: Your subscription ends soon</span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+</div>
+<div class="msg-wrapper">
+  <div class="msg-compose-container">
+    <div id="msg-box" class="row">
+      <div class="empty-cell"></div>
+    </div>
+  </div>
+</div>
+<div class="template">
+  <div class="cell">
+    <div class="wrap">
+      <div class="msg-compose">
+        <div class="msg-compose-wrapper">
+          <div class="msg-title-bar">
+            <div class="icon left"><i class="fa fa-envelope"></i></div>
+            <div class="compose-actions right">
+              <a href="#" class="minimize"><i class="fa fa-minus"></i></a><a href="#" class="close"><i class="fa fa-times"></i></a>
+            </div>
+          </div>
+          <div class="msg-recipients">
+            <div class="to-list">
+              <input type="text" placeholder="To" /><span class="arrow"></span></div>
+            <div class="cc-list collapse">
+              <input type="text" placeholder="cc" />
+            </div>
+            <div class="bcc-list collapse">
+              <input type="text" placeholder="Bcc" />
+            </div>
+          </div>
+          <div class="msg-subject">
+            <input type="text" placeholder="Subject" />
+          </div>
+          <div class="msg-body">
+            <textarea placeholder="Say something"></textarea>
+          </div>
+          <div class="msg-footer">
+            <div class="left">
+              <a href="#" class="send-btn">SEND</a>
+              <a href="#"><i class="fa fa-paperclip"></i></a>
+              <a href="#" class="font"></a>
+            </div>
+            <div class="right"><a href="#"><i class="fa fa-trash"></i></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="dialog-overlay" style="display:none">
+  <div class="dialog">
+    <div class="dialog-content">
+        <div class="dialog-header">
+          <div class="title"><h3>Share Inbox by Gmail</h3></div>
+        </div>
+        <div class="dialog-body">
+          <div>Invite a friend who wants to try Inbox. You have 10 invitations left.</div>
+          <input type="text" placeholder="Email address"/><div class="border"></div>
+        </div>
+        <div class="dialog-footer">
+          <a class="dialog-action">SEND AN INVITATION</a>
+          <a>CANCEL</a>
+        </div>
+    </div>
+  </div>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="{% static "js/index.js" %}"></script>
+
 </body>
 </html>
